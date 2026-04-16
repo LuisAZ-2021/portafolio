@@ -1,4 +1,4 @@
-/* explicacion: al comienzo de nuestra hoja de estilos 
+﻿/* explicacion: al comienzo de nuestra hoja de estilos 
 es muy comun declarar las variables a utilizar */
 :root {
     /* colors */
@@ -367,11 +367,14 @@ html {
 /* tarjetas */
 .contenedor_tarjetas_grid {
   display: grid;
-  /* grid-template-columns: 1fr 1fr;*/
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
   gap: 2rem;
 }
+
+.tarjeta_centrada {
+  grid-column: 2 / 3;
+}
+
 .tarjeta {
   max-width: 600px;
   height: 300px;
@@ -482,7 +485,12 @@ html {
 
   .contenedor_tarjetas_grid{
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr auto;
+  }
+
+  .tarjeta_centrada{
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(600px, 100%);
   }
 
   .articulo__contenedor_descripciones{
@@ -505,7 +513,6 @@ html {
     justify-content: flex-start;
   }
 }
-
 @media (max-width: 992px){
   .presentacion__contenedor_info{
     background: linear-gradient(
@@ -593,7 +600,10 @@ html {
   }
   .contenedor_tarjetas_grid{
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
+  }
+  .tarjeta_centrada{
+    grid-column: auto;
+    width: 100%;
   }
   .boton{
     width: 120px;
@@ -616,3 +626,8 @@ html {
     color: var(--color-secundario);
   }
 }
+
+
+
+
+
